@@ -1,6 +1,9 @@
-/.vscode
+.vscode/
 
-/build
-/data
+.DS_Store
+
+build/
+data/
+libs/
 
 plan.md
