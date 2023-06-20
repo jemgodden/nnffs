@@ -1,6 +1,8 @@
-#include "include/matrix.h"
 #include <iostream>
 #include <cmath>
+#include <glog/logging.h>
+
+#include "include/matrix.h"
 
 
 double square(double value) {
