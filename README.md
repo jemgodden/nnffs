@@ -27,6 +27,7 @@ Further development will include:
     * Convolutional Neural Netowrks (CNNs)
     * Recurrent Neural Networks (RNNs)
     * etc...
+* Adding functionality to read data in a wider variety of formats and in a robust manner.
 * Formally deploying framework as a library for public use.
 * Building functionality in framework for other ML models, such as:
     * Naive-Bayes
