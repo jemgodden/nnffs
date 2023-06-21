@@ -1,1 +1,1 @@
-#include "../include/nn.h"
+#include "../../include/nn/nn.h"
