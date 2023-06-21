@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "../include/matrix.h"
+#include "../include/matrix/matrix.h"
 
 
 Matrix::Matrix(int rows, int cols, double value) {

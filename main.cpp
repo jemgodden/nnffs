@@ -2,7 +2,7 @@
 #include <cmath>
 #include <glog/logging.h>
 
-#include "include/matrix.h"
+#include "include/matrix/matrix.h"
 
 
 double square(double value) {
