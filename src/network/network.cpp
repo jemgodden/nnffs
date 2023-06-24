@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "../../include/network/network.h"
 #include "../../include/matrix/matrix.h"
 
@@ -27,6 +29,18 @@ int Network::hiddenNodes() {
 
 int Network::outputNodes() {
     return _outputNodes;
+};
+
+void Network::info() {
+
+};
+
+void Network::save() {
+
+};
+
+void Network::load() {
+
 };
 
 void Network::train() {

@@ -1,5 +1,6 @@
 #pragma once
 
+
 class Network {
     private:
         int _inputNodes;
@@ -19,6 +20,12 @@ class Network {
         int hiddenNodes();
 
         int outputNodes();
+
+        void info();
+
+        void save();
+
+        void load();
 
         void train();
 
