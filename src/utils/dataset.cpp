@@ -64,7 +64,7 @@ void DataSet::_getParameters() {
         }
     }
     catch (std::string msg) {
-        std::cout << msg << std::endl; 
+        std::cerr << msg << std::endl; 
     }
 
     inputFile.close();
@@ -101,7 +101,7 @@ void DataSet::_getData() {
         }
     }
     catch (const std::string msg) {
-        std::cout << msg << std::endl; 
+        std::cerr << msg << std::endl; 
     }
     
     std::string nextLine;
