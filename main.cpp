@@ -2,6 +2,7 @@
 #include <cmath>
 #include <glog/logging.h>
 
+#include "include/utils/exception.h"
 #include "include/matrix/matrix.h"
 #include "include/utils/dataset.h"
 

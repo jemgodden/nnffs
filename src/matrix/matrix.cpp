@@ -3,6 +3,7 @@
 #include <string>
 
 #include "../../include/matrix/matrix.h"
+#include "../../include/utils/exception.h"
 
 
 Matrix::Matrix(int rows, int cols, double value) {
@@ -34,7 +35,7 @@ void Matrix::clear(double value) {
 void Matrix::setIdentity() {
     try {
         if (_rows != _cols) {
-            throw std::length_error("Matrix is not square.");
+            throw IllegalMatrixOperation("Matrix is not square.");
         }
         else {
             for (int i=0; i<_rows * _cols; i++) {
@@ -65,17 +66,17 @@ void Matrix::set(int row, int col, double value) {
 double Matrix::get(int row, int col) {
     try {
         if (row >= _rows) {
-            throw "Operation incomplete. Row index is out of range of matrix.";
+            throw std::out_of_range("Row index is out of range of matrix.");
         }
         else if (col >= _cols) {
-            throw "Operation incomplete. Column index is out of range matirx.";
+            throw std::out_of_range("Column index is out of range matirx.");
         }
         else {
             return *(_values + (row * _cols) + col);
         }
     }
-    catch (std::string msg) {
-        std::cerr << msg << std::endl;
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
     }
 };
 
@@ -100,7 +101,7 @@ void Matrix::subtractScalar(double scalar) {
 Matrix* Matrix::add(Matrix* input) {
     try {
         if (_rows != input->rows() || _cols != input->cols()) {
-            throw "Operation incomplete. Matrix dimensions do not match.";
+            throw IllegalMatrixOperation("Matrix dimensions do not match.");
         }
         else {
             Matrix* output = new Matrix(_rows, _cols);
@@ -113,15 +114,15 @@ Matrix* Matrix::add(Matrix* input) {
             return output;
         }
     }
-    catch (std::string msg) {
-        std::cerr << msg << std::endl; 
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
 };
 
 Matrix* Matrix::subtract(Matrix* input) {
     try {
         if (_rows != input->rows() || _cols != input->cols()) {
-            throw "Operation incomplete. Matrix dimensions do not match.";
+            throw IllegalMatrixOperation("Matrix dimensions do not match.");
         }
         else {
             Matrix* output = new Matrix(_rows, _cols);
@@ -134,15 +135,15 @@ Matrix* Matrix::subtract(Matrix* input) {
             return output;
         }
     }
-    catch (std::string msg) {
-        std::cerr << msg << std::endl; 
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
 };
 
 Matrix* Matrix::multiply(Matrix* input) {
     try {
         if (_rows != input->rows() || _cols != input->cols()) {
-            throw "Operation incomplete. Matrix dimensions do not match.";
+            throw IllegalMatrixOperation("Matrix dimensions do not match.");
         }
         else {
             Matrix* output = new Matrix(_rows, _cols);
@@ -155,15 +156,15 @@ Matrix* Matrix::multiply(Matrix* input) {
             return output;
         }
     }
-    catch (std::string msg) {
-        std::cerr << msg << std::endl; 
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
 };
 
 Matrix* Matrix::dot(Matrix* input) {
     try {
         if (_cols != input->rows()) {
-            throw "Operation incomplete. Matrix dimensions are not compatible.";
+            throw IllegalMatrixOperation("Matrix dimensions are not compatible.");
         }
         else {
             Matrix* output = new Matrix(_rows, input->cols());
@@ -179,8 +180,8 @@ Matrix* Matrix::dot(Matrix* input) {
             return output;
         }
     }
-    catch (std::string msg) {
-        std::cerr << msg << std::endl; 
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
 };
 

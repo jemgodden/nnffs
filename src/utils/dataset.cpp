@@ -3,6 +3,7 @@
 #include <string>
 
 #include "../../include/utils/dataset.h"
+#include "../../include/utils/exception.h"
 #include "../../include/matrix/matrix.h"
 
 
@@ -47,7 +48,7 @@ void DataSet::_getParameters() {
                 this->_fileCols = std::count(firstLine.begin(), firstLine.end(), ',') + 1;
             }
             else {
-                throw "Input file is empty.";
+                throw FileException("Input file is empty.");
             }
 
             int rowCount = 0;
@@ -60,11 +61,11 @@ void DataSet::_getParameters() {
             this->_fileRows = rowCount;
         }
         else {
-            throw "Input file was not opened properly.";
+            throw FileException("Input file was not opened properly.");
         }
     }
-    catch (std::string msg) {
-        std::cerr << msg << std::endl; 
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
 
     inputFile.close();
@@ -75,11 +76,8 @@ double DataSet::_convertStrToDouble(std::string strValue) {
     try {
         value = std::stod(strValue);
     }
-    catch (const std::invalid_argument&) {
-        std::cerr << "Data contains non-numerical information." << std::endl;
-    }
-    catch (const std::out_of_range&) {
-        std::cerr << "Out of Range error: " << std::endl;
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
     return value;
 }
@@ -93,15 +91,15 @@ void DataSet::_getData() {
             std::string firstLine;
             if (std::getline(inputFile, firstLine)) {}
             else {
-                throw "Input file is empty.";
+                throw FileException("Input file is empty.");
             }
         }
         else {
-            throw "Input file was not opened properly.";
+            throw FileException("Input file was not opened properly.");
         }
     }
-    catch (const std::string msg) {
-        std::cerr << msg << std::endl; 
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
     
     std::string nextLine;
