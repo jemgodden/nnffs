@@ -1,7 +1,8 @@
 #pragma once
 
 #include <string>
-#include "../../include/matrix/matrix.h"
+#include "../matrix/matrix.h"
+
 
 class DataSet {
     private:
