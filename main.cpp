@@ -20,15 +20,15 @@ int main(int argc, char *argv[]) {
     std::cout << "SCALE: m" << std::endl;
     m->print();
     
-    m->add_scalar(1);
+    m->addScalar(1);
     std::cout << "ADD_SCALAR: m" << std::endl;
     m->print();
     
-    m->subtract_scalar(1);
+    m->subtractScalar(1);
     std::cout << "SUBTRACT_SCALAR: m" << std::endl;
     m->print();
     
-    m->set_identity();
+    m->setIdentity();
     std::cout << "IDENTITY: m" << std::endl;
     m->print();
     
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
     m6->print();
     
     Matrix* m9 = new Matrix(4, 4);
-    m9->set_ascending();
+    m9->setAscending();
     std::cout << "INITIAL: m9" << std::endl;
     m9->print();
     
@@ -78,6 +78,7 @@ int main(int argc, char *argv[]) {
     m3->print();
 
     DataSet* data = new DataSet("/Users/jemgodden/Dev/VSCodeProjects/C:C++/NNFFS/data/test.csv");
+    std::cout << "READ DATA: data" << std::endl;
     data->printData();
     
     delete m;

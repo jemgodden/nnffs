@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept> 
 #include <string>
 
 #include "../../include/matrix/matrix.h"
@@ -30,10 +31,10 @@ void Matrix::clear(double value) {
     }
 };
 
-void Matrix::set_identity() {
+void Matrix::setIdentity() {
     try {
         if (_rows != _cols) {
-            throw "Operation incomplete. Matrix is not square.";
+            throw std::length_error("Matrix is not square.");
         }
         else {
             for (int i=0; i<_rows * _cols; i++) {
@@ -46,12 +47,12 @@ void Matrix::set_identity() {
             }
         }
     }
-    catch (std::string msg) {
-        std::cout << msg << std::endl; 
+    catch (std::exception& e) {
+        std::cerr << e.what() << std::endl; 
     }
 };
 
-void Matrix::set_ascending() {
+void Matrix::setAscending() {
     for (int i=0; i<_rows * _cols; i++) {
         *(_values + i) = i+1;
     }
@@ -74,7 +75,7 @@ double Matrix::get(int row, int col) {
         }
     }
     catch (std::string msg) {
-        std::cout << msg << std::endl;
+        std::cerr << msg << std::endl;
     }
 };
 
@@ -84,13 +85,13 @@ void Matrix::scale(double scalar) {
     }
 };
 
-void Matrix::add_scalar(double scalar) {
+void Matrix::addScalar(double scalar) {
     for (int i=0; i<_rows * _cols; i++) {
         *(_values + i) += scalar;
     }
 };
 
-void Matrix::subtract_scalar(double scalar) {
+void Matrix::subtractScalar(double scalar) {
     for (int i=0; i<_rows * _cols; i++) {
         *(_values + i) -= scalar;
     }
@@ -113,7 +114,7 @@ Matrix* Matrix::add(Matrix* input) {
         }
     }
     catch (std::string msg) {
-        std::cout << msg << std::endl; 
+        std::cerr << msg << std::endl; 
     }
 };
 
@@ -134,7 +135,7 @@ Matrix* Matrix::subtract(Matrix* input) {
         }
     }
     catch (std::string msg) {
-        std::cout << msg << std::endl; 
+        std::cerr << msg << std::endl; 
     }
 };
 
@@ -155,7 +156,7 @@ Matrix* Matrix::multiply(Matrix* input) {
         }
     }
     catch (std::string msg) {
-        std::cout << msg << std::endl; 
+        std::cerr << msg << std::endl; 
     }
 };
 
@@ -179,7 +180,7 @@ Matrix* Matrix::dot(Matrix* input) {
         }
     }
     catch (std::string msg) {
-        std::cout << msg << std::endl; 
+        std::cerr << msg << std::endl; 
     }
 };
 

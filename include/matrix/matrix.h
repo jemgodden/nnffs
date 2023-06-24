@@ -20,9 +20,9 @@ class Matrix {
 
         void clear(double value=DEFAULT_VALUE);
         
-        void set_identity();
+        void setIdentity();
         
-        void set_ascending();
+        void setAscending();
 
         void set(int row, int col, double value);
 
@@ -30,9 +30,9 @@ class Matrix {
         
         void scale(double scalar);
         
-        void add_scalar(double scalar);
+        void addScalar(double scalar);
         
-        void subtract_scalar(double scalar);
+        void subtractScalar(double scalar);
         
         Matrix* add(Matrix* input);
         
