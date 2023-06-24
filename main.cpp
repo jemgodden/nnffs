@@ -3,6 +3,7 @@
 #include <glog/logging.h>
 
 #include "include/matrix/matrix.h"
+#include "include/utils/dataset.h"
 
 
 double square(double value) {
@@ -75,6 +76,9 @@ int main(int argc, char *argv[]) {
     m3->apply(&square);
     std::cout << "APPLY: m3" << std::endl;
     m3->print();
+
+    DataSet* data = new DataSet("/Users/jemgodden/Dev/VSCodeProjects/C:C++/NNFFS/data/test.csv");
+    data->printData();
     
     delete m;
     delete m2;
@@ -85,6 +89,8 @@ int main(int argc, char *argv[]) {
     delete m7;
     delete m8;
     delete m9;
+
+    delete data;
 
     return 0;
 };
