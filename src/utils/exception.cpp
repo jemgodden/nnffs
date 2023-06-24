@@ -15,11 +15,21 @@ const char* IllegalMatrixOperation::what() const noexcept {
 };
 
 
-FileException::FileException(const char* msg) {
-    _message = "File Exception: ";
+FileOpenError::FileOpenError(const char* msg) {
+    _message = "File Open Error: ";
     _message.append(msg);
 };
 
-const char* FileException::what() const noexcept {
+const char* FileOpenError::what() const noexcept {
+    return _message.c_str();
+};
+
+
+EmptyFile::EmptyFile(const char* msg) {
+    _message = "Empty File: ";
+    _message.append(msg);
+};
+
+const char* EmptyFile::what() const noexcept {
     return _message.c_str();
 };

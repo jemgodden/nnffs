@@ -48,7 +48,7 @@ void DataSet::_getParameters() {
                 this->_fileCols = std::count(firstLine.begin(), firstLine.end(), ',') + 1;
             }
             else {
-                throw FileException("Input file is empty.");
+                throw EmptyFile("Input file is empty.");
             }
 
             int rowCount = 0;
@@ -61,7 +61,7 @@ void DataSet::_getParameters() {
             this->_fileRows = rowCount;
         }
         else {
-            throw FileException("Input file was not opened properly.");
+            throw FileOpenError("Input file was not opened properly.");
         }
     }
     catch (std::exception& e) {
@@ -91,11 +91,11 @@ void DataSet::_getData() {
             std::string firstLine;
             if (std::getline(inputFile, firstLine)) {}
             else {
-                throw FileException("Input file is empty.");
+                throw EmptyFile("Input file is empty.");
             }
         }
         else {
-            throw FileException("Input file was not opened properly.");
+            throw FileOpenError("Input file was not opened properly.");
         }
     }
     catch (std::exception& e) {
