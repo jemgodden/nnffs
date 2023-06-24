@@ -1,7 +1,7 @@
 #include <cmath>
 
-#include "../../include/nn/activations.h"
-#include "../../include/nn/nn.h"
+#include "../../include/network/activations.h"
+#include "../../include/network/network.h"
 
 
 double sigmoid(double input) {
